@@ -1,6 +1,27 @@
-默认运行环境是国外的服务器,默认环境是python(linux自带的是python2)
+默认运行环境是国外的服务器,默认环境是python3.7(linux自带的是python2)
 首次运行
 ```shell script
+wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
+#解压缩
+tar -zxvf Python-3.7.0.tgz
+
+#进入解压后的目录，依次执行下面命令进行手动编译
+./configure prefix=/usr/local/python3 
+make && make install
+
+#添加python3的软链接 
+ln -s /usr/local/python3/bin/python3.7 /usr/bin/python3.7 
+#添加 pip3 的软链接 
+ln -s /usr/local/python3/bin/pip3.7 /usr/bin/pip3.7
+#测试是否安装成功了 
+python -V
+
+
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
+
+
+
 pip install -r requirt.txt 
 
 python3 manage.py makemigrations
@@ -28,7 +49,7 @@ seconds 字段控制间隔时间,每30s会执行一次,如果是1分钟,请设�
 启动运行服务
 
 ```shell script
-python3 manage.py runserver 
+nohup python3 manage.py runserver 0.0.0.0:8000  >./server-runing.log 2>&1 &  
 ```
 运行此命令的窗口请勿关闭
 
