@@ -82,7 +82,8 @@ python3 manage.py createsuperuser
 
 ```shell script
 # linux后台 运行命令
-nohup python3 manage.py runserver &
+nohup python3 manage.py runserver 0.0.0.0:8000  >./server-runing.log 2>&1 &  
+
 ```
 
 注意linux每次运行前需先在有venv目录的层级执行```source venv/bin/activate```
